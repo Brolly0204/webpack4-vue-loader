@@ -11,9 +11,6 @@
     "lint": "eslint --ext .js,.vue,.jsx src",
     "lint-fix": "eslint --fix --ext .js,.vue,.jsx src"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
