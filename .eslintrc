@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "env": {
+    node: true
+  },
+  "extends": [
+    "eslint:recommended",
+    "standard"
+  ],
+  "parser": "vue-eslint-parser",
+  "plugins": [
+    "vue"
+  ],
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module"
+  },
+  "rules": {}
+}
