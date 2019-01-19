@@ -1,9 +1,9 @@
 const path = require('path')
 const merge = require('webpack-merge')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const baseConfig = require('./webpack.config.base.js')
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 const devMode = process.env.NODE_ENV === 'development'
 
@@ -50,14 +50,14 @@ const config = {
     }
   },
   plugins: [
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public/index.html')
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
-    })
+    }),
+    new VueSSRClientPlugin()
   ]
 }
 

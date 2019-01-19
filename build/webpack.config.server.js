@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const nodeExternals = require('webpack-node-externals')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const baseConfig = require('./webpack.config.base.js')
@@ -11,6 +10,7 @@ const devMode = process.env.NODE_ENV === 'development'
 
 const config = {
   target: 'node', // 打包目标 node环境
+  mode: 'development',
   entry: path.join(__dirname, '../src/server-entry.js'),
   output: {
     libraryTarget: 'commonjs2', // 打包后的代码 模块化类型（commonjs）
@@ -43,16 +43,7 @@ const config = {
       }
     ]
   },
-  optimization: {
-    splitChunks: {
-      // 默认打包node_modules到venders.js
-      chunks: 'all'
-    },
-    // 打包webpack运行时代码到runtime.js
-    runtimeChunk: true
-  },
   plugins: [
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'

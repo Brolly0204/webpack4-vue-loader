@@ -1,4 +1,5 @@
 const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const devMode = process.env.NODE_ENV === 'development'
 
@@ -36,5 +37,6 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [new VueLoaderPlugin()]
 }
