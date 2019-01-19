@@ -1,5 +1,5 @@
 # 从零搭建Vue开发环境
-> webpack4 + vue-loader + babel-loader v8 + Babel v7 + eslint + git hooks + editorconfig
+> webpack v4 + vue-loader + babel-loader v8 + Babel v7 + eslint + git hooks + editorconfig
 
 ## Vue Loader配置
 
@@ -54,9 +54,7 @@ webpack 4.x | babel-loader 8.x | babel 7.x
 ### babel参考配置文档
 [babel-loader](https://www.npmjs.com/package/babel-loader/v/8.0.0-beta.1)
 
-## css提取
-
-webpack4
+## css提取（webpack v4.0）
 
 ```
 npm install -D mini-css-extract-plugin
@@ -174,6 +172,37 @@ module: {
 [eslint-plugin-vue](https://vuejs.github.io/eslint-plugin-vue/user-guide/#installation)
 [vue-eslint-parser](https://www.npmjs.com/package/vue-eslint-parser)
 
+## git hooks
+
+使用git钩子自动eslint校验
+
+```
+npm i husky pre-commit -D
+```
+
+package.json
+```
+"scripts": {
+  "lint": "eslint --ext .js,.vue,.jsx src",
+  "lint-fix": "eslint --fix --ext .js,.vue,.jsx src"
+}
+```
+
+创建.huskyrc文件
+```
+{
+  "hooks": {
+    "pre-commit": "npm run lint"
+  }
+}
+
+```
+> git commit时 会触发pre-commit钩子 从而进行eslint代码检查
+
+### husky配置参考文档
+[git hooks](https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90)
+[husky](https://www.npmjs.com/package/husky)
+
 ## 编辑器配置
 
 创建.editorconfig
@@ -190,3 +219,6 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 ```
+
+### editor配置参考文档
+[editorConfig](https://editorconfig.org/)
