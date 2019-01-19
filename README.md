@@ -167,10 +167,10 @@ module: {
 }
 ```
 ### eslint配置参考文档
-[eslint-loader](https://www.npmjs.com/package/eslint-loader)
-[eslint-config-standard](https://www.npmjs.com/package/eslint-config-standard)
-[eslint-plugin-vue](https://vuejs.github.io/eslint-plugin-vue/user-guide/#installation)
-[vue-eslint-parser](https://www.npmjs.com/package/vue-eslint-parser)
+ - [eslint-loader](https://www.npmjs.com/package/eslint-loader)
+ - [eslint-config-standard](https://www.npmjs.com/package/eslint-config-standard)
+ - [eslint-plugin-vue](https://vuejs.github.io/eslint-plugin-vue/user-guide/#installation)
+ - [vue-eslint-parser](https://www.npmjs.com/package/vue-eslint-parser)
 
 ## git hooks
 
@@ -200,8 +200,8 @@ package.json
 > git commit时 会触发pre-commit钩子 从而进行eslint代码检查
 
 ### husky配置参考文档
-[git hooks](https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90)
-[husky](https://www.npmjs.com/package/husky)
+ - [git hooks](https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90)
+ - [husky](https://www.npmjs.com/package/husky)
 
 ## 编辑器配置
 
