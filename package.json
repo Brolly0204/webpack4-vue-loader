@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config ./build/webpack.config.client.js --mode production",
+    "build:client": "npm run clean && cross-env NODE_ENV=production webpack --config ./build/webpack.config.client.js --mode production",
+    "build:server": "npm run clean && cross-env NODE_ENV=production webpack --config ./build/webpack.config.server.js --mode production",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.client.js --progress --mode development -w",
     "dev:server": "nodemon server/server.js",
-    "clean": "rimraf dist",
+    "clean": "rimraf public && rimraf server-build",
     "lint": "eslint --ext .js,.vue,.jsx src",
     "lint-fix": "eslint --fix --ext .js,.vue,.jsx src",
-    "dev": "npm-run-all --parallel dev:**"
+    "dev": "npm-run-all --parallel dev:**",
+    "build": "npm-run-all --parallel build:**",
+    "start": "cross-env NODE_ENV=production node server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -61,6 +64,7 @@
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa-send": "^5.0.0",
+    "koa-static": "^5.0.0",
     "vue": "^2.5.22",
     "vue-meta": "^1.5.8"
   }

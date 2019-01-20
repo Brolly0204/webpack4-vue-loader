@@ -12,7 +12,7 @@ const config = {
   output: {
     filename: '[name].[chunkhash:8].js',
     path: path.join(__dirname, '../public'),
-    publicPath: 'http://127.0.0.1:8080/public/'
+    publicPath: '/public/'
   },
   devtool: devMode ? 'cheap-module-eval-source-map' : 'source-map',
   module: {
@@ -55,7 +55,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../public/index.html')
+      template: path.join(__dirname, '../index.html')
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

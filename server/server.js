@@ -1,9 +1,11 @@
 const Koa = require('koa')
 const logger = require('koa-logger')
 const send = require('koa-send')
+// const serve = require('koa-static')
 const path = require('path')
-const router = require('./routes/dev-ssr.js')
+const staticRouter = require('./routes/static.js')
 
+const devMode = process.env.NODE_ENV === 'development'
 const app = new Koa()
 
 // 中间件
@@ -17,7 +19,14 @@ app.use(async (ctx, next) => {
   }
 })
 
-const devMode = process.env.NODE_ENV === 'development'
+app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
+
+let router
+if (devMode) {
+  router = require('./routes/dev-ssr.js')
+} else {
+  router = require('./routes/ssr.js')
+}
 
 app.use(router.routes()).use(router.allowedMethods())
 
