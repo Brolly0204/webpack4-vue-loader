@@ -8,7 +8,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const devMode = process.env.NODE_ENV === 'development'
 
 const config = {
-  entry: path.join(__dirname, '../src/main.js'),
+  entry: path.join(__dirname, '../src/client-entry.js'),
   output: {
     filename: '[name].[chunkhash:8].js',
     path: path.join(__dirname, '../public'),
@@ -48,6 +48,9 @@ const config = {
     overlay: {
       warnings: true,
       errors: true
+    },
+    historyApiFallback: {
+      index: '/public/index.html'
     }
   },
   plugins: [

@@ -7,6 +7,10 @@
 <script>
 export default {
   name: 'app',
+  metaInfo: {
+    title: 'Vue SSR App!',
+    titleTemplate: null
+  },
   data: () => ({
     title: 'Hello Liwenli'
   }),

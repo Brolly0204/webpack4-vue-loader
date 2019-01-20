@@ -4,6 +4,7 @@ export default context => {
   return new Promise((resolve, reject) => {
     // const { app, router } = createApp()
     const { app } = createApp()
+    context.meta = app.$meta()
     resolve(app)
     // router.push(context.url)
     // router.onReady(() => {
