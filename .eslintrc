@@ -4,7 +4,7 @@
     node: true
   },
   "extends": [
-    "eslint:recommended",
+    'plugin:vue/essential',
     "standard"
   ],
   "parser": "vue-eslint-parser",
@@ -15,5 +15,10 @@
     "parser": "babel-eslint",
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+    // allow async-await
+    "generator-star-spacing": "off",
+    // allow debugger during development
+    'space-before-function-paren': 0
+  }
 }

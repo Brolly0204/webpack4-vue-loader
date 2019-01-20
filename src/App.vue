@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h3>{{title}}</h3>
+    <h3 @click="clickHandle">{{title}}</h3>
   </div>
 </template>
 
@@ -9,7 +9,12 @@ export default {
   name: 'app',
   data: () => ({
     title: 'Hello Liwenli'
-  })
+  }),
+  methods: {
+    clickHandle() {
+      console.log('hello world!')
+    }
+  }
 }
 </script>
 

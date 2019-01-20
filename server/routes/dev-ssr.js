@@ -39,11 +39,10 @@ const handleSSR = async ctx => {
 
   // 从devServer中获取mainfest.json文件
   // vue-ssr-client-manifest.json 用于客户端插件
-  const clientMainfestResp = await axios.get(
-    'http://localhost:8080/vue-ssr-client-manifest.json'
+  const clientManifestResp = await axios.get(
+    'http://localhost:8080/public/vue-ssr-client-manifest.json'
   )
-
-  const clientMainfest = clientMainfestResp.data
+  const clientManifest = clientManifestResp.data
 
   const template = fs.readFileSync(
     path.join(__dirname, '../server.template.ejs'),
@@ -52,7 +51,7 @@ const handleSSR = async ctx => {
 
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {
     inject: false,
-    clientMainfest
+    clientManifest
   })
   await serverRender(ctx, renderer, template)
 }

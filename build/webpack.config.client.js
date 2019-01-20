@@ -11,7 +11,8 @@ const config = {
   entry: path.join(__dirname, '../src/main.js'),
   output: {
     filename: '[name].[chunkhash:8].js',
-    path: path.join(__dirname, '..', 'dist')
+    path: path.join(__dirname, '../public'),
+    publicPath: 'http://127.0.0.1:8080/public/'
   },
   devtool: devMode ? 'cheap-module-eval-source-map' : 'source-map',
   module: {
